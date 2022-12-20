@@ -7,3 +7,4 @@ class UploadDataSerialzier(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
         model = models.UploadDatas
+
