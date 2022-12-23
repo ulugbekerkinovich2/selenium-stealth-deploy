@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+<html>
 <body>
-$END$
+<h1 >Upload data</h1>
+<ul>
+    {% for i in data %}
+    <li>{{ i.link_for_get_data }}</li>
+    <li>{{ i.login_for_that_site }}</li>
+    <li>{{ i.password_for_that_site }}</li>
+    <li>{{ i.link_for_upload_data2 }}</li>
+    <li>{{ i.login_for_that_site2 }}</li>
+    <li>{{ i.password_for_that_site2 }}</li>
+    <li>{{ i.input_your_folder_path }}</li>
+    <li>{{ i.input_level_of_XPATH }}</li>
+    <li>{{ i.input_button_of_XPATH }}</li>
+    <li><<<<>>>>></li>
+    <br>
+    {% endfor %}
+</ul>
 </body>
 </html>
