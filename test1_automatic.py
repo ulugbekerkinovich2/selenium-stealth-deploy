@@ -52,15 +52,15 @@ def selenium_upload():
     # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.get("https://intranet.ytit.uz/login/index.php")
     driver.find_element(By.NAME, 'username').send_keys('ier20037')
-    time.sleep(2)
+    time.sleep(1)
     driver.find_element(By.NAME, 'password').send_keys('AC2558243')
-    time.sleep(3.2)
+    time.sleep(1.2)
     button = driver.find_element(By.XPATH,
                                  '/html/body/div[1]/div[3]/div/div/section/div/div[2]/div/div[2]/div[1]/form/button')
     button.click()
-    time.sleep(2.5)
+    time.sleep(1.5)
     driver.get(input_link)
-    time.sleep(2.5)
+    time.sleep(1.5)
     driver.refresh()
     all_data = driver.find_element(By.XPATH, '//*[@id="region-main"]').text
     data = all_data.split(' ')
@@ -108,7 +108,7 @@ def selenium_upload():
     # print(link_for_get_data)
     driver.get(f"{link_for_get_data}")
     # print(len(lists))  # todo bu linklar soni
-    time.sleep(2)
+    time.sleep(1)
     all_texts = []  # todo all_texts
     all_data = driver.find_element(By.XPATH, '//*[@id="region-main"]').text
     data = all_data.split(' ')
@@ -172,23 +172,23 @@ def selenium_upload():
     driver.get(f"{link_for_that_site2}")
     if len(all_data) >= 100:
         cursor.execute(f"DELETE FROM upload_data WHERE id = {counts}")
-    time.sleep(2)
+    time.sleep(1)
     driver.refresh()
     driver.maximize_window()
-    time.sleep(5)
+    time.sleep(2)
     login = driver.find_element(By.NAME, 'number')
-    time.sleep(3)
+    time.sleep(1.5)
     login.send_keys(f"{login_for_that_site2}")
     time.sleep(1)
     password = driver.find_element(By.NAME, 'passwordField')
     time.sleep(0.5)
     password.send_keys("password")
-    time.sleep(2)
+    time.sleep(1.5)
     driver.find_element(By.XPATH, '/html/body/div[1]/section/div/form/div[3]/button').click()
-    time.sleep(2)
+    time.sleep(1.5)
     driver.find_element(By.XPATH,
                             '/html/body/div/div[2]/div[1]/nav/div[2]/nav/div/a[2]/div').click()
-    time.sleep(2)
+    time.sleep(1.5)
     driver.find_element(By.XPATH, f'{which_level}').click()
     time.sleep(1)
     for eles in range(1, 12):
@@ -202,7 +202,7 @@ def selenium_upload():
         # print("course_name", course_name)
         try:
             if course_names.lower() == course_name.lower():
-                time.sleep(2)
+                time.sleep(1.2)
                 # print(course_names, course_name, 'shu edi')
                 course_detail.click()
                 time.sleep(1.5)
@@ -211,9 +211,9 @@ def selenium_upload():
             print('course names topilmadi')
     time.sleep(1)
     SPAN = driver.find_element(By.XPATH, '/html/body/div/div[2]/div[2]/main/div[2]/div[1]/div[1]/ul/li[2]/a/span')
-    time.sleep(2)
+    time.sleep(0.5)
     SPAN.click()
-    time.sleep(2)
+    # time.sleep(2)
     try:
         for i in range(0, len(all_h3) + 1):
             if i > 0 and f_data[i] == 0:
@@ -228,7 +228,7 @@ def selenium_upload():
                 time.sleep(0.5)
                 driver.find_element(By.XPATH,
                                     '//*[@id="app"]/div[2]/div[2]/main/div[2]/div[2]/div/div[1]/button').click()
-                time.sleep(3)
+                time.sleep(1.5)
                 input_week = driver.find_element(By.NAME, 'week_number')
                 input_week.send_keys(i)
                 input_topic_name = driver.find_element(By.NAME, 'name')
