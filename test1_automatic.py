@@ -2,7 +2,6 @@ import os
 import time
 from test import wait_t
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -41,7 +40,6 @@ def selenium_upload():
     replace_folder_path = folder_path.replace("str(\\)", "str(\)")
     print('replace_folder_path', replace_folder_path)
     input_link = f"{link_for_get_data}"
-    # dir_path = 'ORAL BIOLOGY (RUS)'
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -49,7 +47,6 @@ def selenium_upload():
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
-
 
 
     # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -62,14 +59,9 @@ def selenium_upload():
                                  '/html/body/div[1]/div[3]/div/div/section/div/div[2]/div/div[2]/div[1]/form/button')
     button.click()
     time.sleep(2.5)
-    # link = input("linkni kiriting >>>  ")
     driver.get(input_link)
-    # title1 = driver.find_element(By.TAG_NAME, 'h1').text
-    # print(title1, type(title1))
     time.sleep(2.5)
     driver.refresh()
-    # title = driver.find_elements(By.TAG_NAME, 'h3')
-    # data = [element.text for element in title]
     all_data = driver.find_element(By.XPATH, '//*[@id="region-main"]').text
     data = all_data.split(' ')
     data1 = ' '.join(map(str, data))
@@ -152,22 +144,13 @@ def selenium_upload():
     # print('yangilangan ', f_data)
     # print(all_h3)
     f_data.sort(reverse=False)
-    # print('f_data', f_data)
-    # print(all_texts)
     indeks_files_video_urok = [i for i in range(0, len(all_texts)) if all_texts[i] == "Видео-урок"]
     print('indeks_files_video_urok', indeks_files_video_urok)
     indeks_files = [i for i in range(0, len(all_texts)) if all_texts[i] == "Файл"]
     print('indeks_files', indeks_files)
-    # print('len indeks_files', len(indeks_files))
     folder_path1 = folder_path.replace("str(\\)", "str('\')")
-    # print('replace',folder_path1)
-    # newpath = rf'C:\Users\ulugbek\Downloads\{dir}'
-    # if not os.path.exists(newpath):
-    #     os.makedirs(newpath)
     all_files = []
     all_sizes = []
-    # 'C:\Users\ulugbek\Downloads\Russian language 1 (English groups) D. Kambarova'
-    # dir_name = f"{folder_path1}"
     list_of_files = filter(lambda x: os.path.isfile(os.path.join(replace_folder_path, x)), os.listdir( replace_folder_path))
     list_of_files = sorted(list_of_files, key=lambda x: os.path.getmtime(os.path.join(replace_folder_path, x)))
     for file_name in list_of_files:
@@ -184,9 +167,6 @@ def selenium_upload():
         # print(timestamp_str, ' -->', file_name, mb, 'MB')
         all_files.append(file_name)
         all_sizes.append(mb)
-    # print("all_files", all_files)
-    # print('all_sizes', all_sizes)
-    # time.sleep(1000)
     counts = 0
     # driver.get("https://lms.spprt.uz/#/auth/login")
     driver.get(f"{link_for_that_site2}")
@@ -209,9 +189,6 @@ def selenium_upload():
     driver.find_element(By.XPATH,
                             '/html/body/div/div[2]/div[1]/nav/div[2]/nav/div/a[2]/div').click()
     time.sleep(2)
-    # driver.find_element(By.XPATH, '/html/body/div/div[2]/div[1]/nav/div[2]/nav/div/a[2]/div').click()
-    time.sleep(2.1)
-    # driver.find_element(By.XPATH, '/html/body/div/div[2]/div[2]/main/div[2]/div[1]/div').click()
     driver.find_element(By.XPATH, f'{which_level}').click()
     time.sleep(1)
     for eles in range(1, 12):
@@ -233,7 +210,6 @@ def selenium_upload():
         except:
             print('course names topilmadi')
     time.sleep(1)
-    # driver.find_element(By.XPATH, '/html/body/div/div[2]/div[2]/main/div[2]/div[1]/div[1]/ul/li[2]/a/span').click()
     SPAN = driver.find_element(By.XPATH, '/html/body/div/div[2]/div[2]/main/div[2]/div[1]/div[1]/ul/li[2]/a/span')
     time.sleep(2)
     SPAN.click()
@@ -242,16 +218,12 @@ def selenium_upload():
         for i in range(0, len(all_h3) + 1):
             if i > 0 and f_data[i] == 0:
                 cycle = all_texts[f_data[i]:f_data[i + 1]]
-                # print('cycle02', cycle)
             if i == 0:
                 cycle = all_texts[0:f_data[i]]
-                # print('cycle0', cycle)
             if i != 0:
                 cycle = all_texts[f_data[i - 1]:f_data[i]]
-                # print('cycle1', cycle)
             if i == 0 and f_data[i] == 0:
                 cycle = all_texts[f_data[i]:f_data[i + 1]]
-                # print('cycle01', cycle)
             if (len(cycle) >= 2) or ('Файл' in cycle) or ('Папка' in cycle):
                 time.sleep(0.5)
                 driver.find_element(By.XPATH,
@@ -310,7 +282,6 @@ def selenium_upload():
                         print('PAPKA GA KIRDI')
                         print('len my_folder_file_length_list', len(my_folder_file_length_list))
                         print('len my_folder_file_length_list', my_folder_file_length_list)
-                        # for k1 in range(0, my_folder_file_length_list[count]):
                         for k in range(0, my_folder_file_length_list[count]):
                             all_file1 = f"{folder_path1}\{all_files[0]}"
                             # print('all_file1', all_file1)
@@ -323,8 +294,6 @@ def selenium_upload():
                                 count += 1
                                 break
                             print('k', k)
-                    # else:
-                    #     continue
                 print('barcha olingan fayllar ', all1)
                 all2 = ' \n '.join(all1)
                 all3 = sum(all_sizes1)
