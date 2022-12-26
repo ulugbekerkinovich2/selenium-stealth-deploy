@@ -69,23 +69,23 @@ WSGI_APPLICATION = 'uploaddata.wsgi.application'
 
 # breezy-cover
 DATABASES = {
-        # 'default': {
-        #     'ENGINE': 'django.db.backends.postgresql',
-        #     'NAME': 'railway',
-        #     'USER': 'postgres',
-        #     'PASSWORD': '2Isgiygc3um04pBfq7gr',
-        #     'HOST': 'containers-us-west-73.railway.app',
-        #     'PORT': '7365',
-        # }
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'railway',
+            'USER': 'postgres',
+            'PASSWORD': '2Isgiygc3um04pBfq7gr',
+            'HOST': 'containers-us-west-73.railway.app',
+            'PORT': '7365',
+        }
 
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres7',
-        'USER': 'postgres',
-        'PASSWORD': '0852',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'postgres7',
+    #     'USER': 'postgres',
+    #     'PASSWORD': '0852',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '5432',
+    # }
 
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
