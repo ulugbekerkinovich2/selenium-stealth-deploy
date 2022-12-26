@@ -18,7 +18,7 @@ def wait_t():
     return all_data
 
 
-cursor = connection.cursor()
-cursor.execute("SELECT * FROM upload_data")
-all_data = cursor.fetchall()
-print(all_data)
+# cursor = connection.cursor()
+# cursor.execute("SELECT * FROM upload_data")
+# all_data = cursor.fetchall()
+# print(all_data)

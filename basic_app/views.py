@@ -33,11 +33,4 @@ class ProfileList(APIView):
         return Response({'data': queryset})
 
 
-class ListLevel(generics.ListCreateAPIView):
-    queryset = models.Mylevel.objects.all()
-    serializer_class = serializers.MyLevelSerialzier
 
-
-class DetailLevel(generics.RetrieveUpdateDestroyAPIView):
-    queryset = models.Mylevel.objects.all()
-    serializer_class = serializers.MyLevelSerialzier

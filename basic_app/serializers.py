@@ -9,8 +9,5 @@ class UploadDataSerialzier(serializers.ModelSerializer):
         model = models.UploadDatas
 
 
-class MyLevelSerialzier(serializers.ModelSerializer):
-    class Meta:
-        fields = '__all__'
-        model = models.Mylevel
+
 

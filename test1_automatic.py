@@ -12,8 +12,6 @@ def selenium_upload():
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM upload_data")
     all_data = cursor.fetchall()
-    if len(all_data) >= 100:
-        del all_data[0]
     wait_ti = wait_t()
     wait_ti1 = wait_ti[-1][9]
     print("wait_ti10", wait_ti1)
@@ -38,17 +36,13 @@ def selenium_upload():
     which_level = arr1[6]
     course_name = arr1[7]
     title = str(arr1[8])
-
     print(link_for_get_data, link_for_that_site2, login_for_that_site2,
           password_for_that_site2, folder_path, which_level, course_name, 'shu')
     replace_folder_path = folder_path.replace("str(\\)", "str(\)")
     print('replace_folder_path', replace_folder_path)
-
     input_link = f"{link_for_get_data}"
     # dir_path = 'ORAL BIOLOGY (RUS)'
-
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-
     driver.get("https://intranet.ytit.uz/login/index.php")
     driver.find_element(By.NAME, 'username').send_keys('ier20037')
     time.sleep(2)
@@ -66,7 +60,6 @@ def selenium_upload():
     driver.refresh()
     # title = driver.find_elements(By.TAG_NAME, 'h3')
     # data = [element.text for element in title]
-
     all_data = driver.find_element(By.XPATH, '//*[@id="region-main"]').text
     data = all_data.split(' ')
     data1 = ' '.join(map(str, data))
@@ -80,13 +73,12 @@ def selenium_upload():
     elems = driver.find_elements(By.TAG_NAME, 'a')
     for elem in elems:
         link = elem.get_attribute('href')
-
         if 'https://intranet.ytit.uz/mod/resource/' in str(link):
             # print(link)  # todo bu linklar
             lists.append(link)
         if 'https://intranet.ytit.uz/mod/url/' in str(link):
             url_link.append(link)
-        if 'https://intranet.ytit.uz/mod/folder' in str(link):
+        if 'https://intranet.ytit.uz/mod/folder' in str(link) or 'https://intranet.ytit.uz/pluginfile' in str(link):
             folder_link.append(link)
             print('folder yoq ekan')
     my_folder_file_length_list = []
@@ -104,12 +96,12 @@ def selenium_upload():
     print(my_folder_file_length_list, 'my_folder_file_length_list')
     for i in url_link:
         driver.get(i)
-        print(driver.current_url)
+        # print(driver.current_url)
         a = driver.current_url
         if 'https://intranet.ytit.uz/mod/url' not in a:
             a = driver.current_url
             yotube_links.append(a)
-            print(a)
+            # print(a)
     time.sleep(1.5)
     print(link_for_get_data)
     driver.get(f"{link_for_get_data}")
@@ -126,7 +118,6 @@ def selenium_upload():
         if i.text != '':
             # print(i.text, 'h3 tags')
             all_h3.append(i.text)
-
     fake_data = ['Ваши достижения', 'Тематический план', 'Объявления', 'Форум', "O'quv qo'llanma", 'Общее', '']
     for i in data2:
         if i not in fake_data and i != '':
@@ -134,7 +125,6 @@ def selenium_upload():
             all_texts.append(i)
         else:
             continue
-
     f_data = []
 
     for el in all_h3:
@@ -187,9 +177,11 @@ def selenium_upload():
     # print("all_files", all_files)
     # print('all_sizes', all_sizes)
     # time.sleep(1000)
-
+    counts = 0
     # driver.get("https://lms.spprt.uz/#/auth/login")
     driver.get(f"{link_for_that_site2}")
+    if len(all_data) >= 100:
+        cursor.execute(f"DELETE FROM upload_data WHERE id = {counts}")
     time.sleep(2)
     driver.refresh()
     driver.maximize_window()
@@ -197,11 +189,11 @@ def selenium_upload():
     login = driver.find_element(By.NAME, 'number')
     time.sleep(3)
     login.send_keys(f"{login_for_that_site2}")
-    time.sleep(0.5)
+    time.sleep(1)
     password = driver.find_element(By.NAME, 'passwordField')
     time.sleep(0.5)
     password.send_keys("password")
-    time.sleep(0.1)
+    time.sleep(2)
     driver.find_element(By.XPATH, '/html/body/div[1]/section/div/form/div[3]/button').click()
     time.sleep(2)
     driver.find_element(By.XPATH,
@@ -222,7 +214,7 @@ def selenium_upload():
         time.sleep(1)
         print("course_name", course_name)
         try:
-            if course_names == course_name:
+            if course_names.lower() == course_name.lower():
                 time.sleep(2)
                 print(course_names, course_name, 'shu edi')
                 course_detail.click()
@@ -250,7 +242,6 @@ def selenium_upload():
             if i == 0 and f_data[i] == 0:
                 cycle = all_texts[f_data[i]:f_data[i + 1]]
                 # print('cycle01', cycle)
-
             if (len(cycle) >= 2) or ('Файл' in cycle) or ('Папка' in cycle):
                 time.sleep(0.5)
                 driver.find_element(By.XPATH,
@@ -342,6 +333,7 @@ def selenium_upload():
                     driver.find_element(By.XPATH,
                                         '/html/body/div[2]/div/div/div/div[2]/div/div/div[2]/div[3]/div/button[2]').click()
                     print('successfully saved ✅ ')
+                    counts += 1
                     time.sleep(1)
                     driver.refresh()
                     time.sleep(0.5)

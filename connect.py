@@ -11,6 +11,6 @@ cursor = connect.cursor()
 
 
 # cursor = connection.cursor()
-cursor.execute("SELECT * FROM upload_data")
-all_data = cursor.fetchone()
-print(all_data, type(all_data[8]))
+# cursor.execute("SELECT * FROM upload_data")
+# all_data = cursor.fetchone()
+# print(all_data, type(all_data[8]))

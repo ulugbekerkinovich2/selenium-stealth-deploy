@@ -7,7 +7,4 @@ urlpatterns = [
     path('upload/<int:pk>', views.DetailUploadData.as_view()),
     path('uploads/', views.CreateUploadData.as_view()),
     path('user/', views.ProfileList.as_view()),
-    path('level/', views.ListLevel.as_view()),
-    path('level/<int:pk>', views.DetailLevel.as_view())
-
 ]

@@ -1,0 +1,495 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /upload/:
+    get:
+      operationId: listUploadDatas
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UploadDataSerialzier'
+          description: ''
+      tags:
+      - upload
+  /upload/{id}:
+    get:
+      operationId: retrieveUploadDatas
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this upload datas.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadDataSerialzier'
+          description: ''
+      tags:
+      - upload
+    put:
+      operationId: updateUploadDatas
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this upload datas.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadDataSerialzier'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UploadDataSerialzier'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UploadDataSerialzier'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadDataSerialzier'
+          description: ''
+      tags:
+      - upload
+    patch:
+      operationId: partialUpdateUploadDatas
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this upload datas.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadDataSerialzier'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UploadDataSerialzier'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UploadDataSerialzier'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadDataSerialzier'
+          description: ''
+      tags:
+      - upload
+    delete:
+      operationId: destroyUploadDatas
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this upload datas.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - upload
+  /user/:
+    get:
+      operationId: listProfiles
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            text/html:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - user
+  /level/:
+    get:
+      operationId: listMylevels
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MyLevelSerialzier'
+          description: ''
+      tags:
+      - level
+    post:
+      operationId: createMylevel
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyLevelSerialzier'
+          description: ''
+      tags:
+      - level
+  /level/{id}:
+    get:
+      operationId: retrieveMylevel
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this mylevel.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyLevelSerialzier'
+          description: ''
+      tags:
+      - level
+    put:
+      operationId: updateMylevel
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this mylevel.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyLevelSerialzier'
+          description: ''
+      tags:
+      - level
+    patch:
+      operationId: partialUpdateMylevel
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this mylevel.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyLevelSerialzier'
+          description: ''
+      tags:
+      - level
+    delete:
+      operationId: destroyMylevel
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this mylevel.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - level
+  /student/:
+    get:
+      operationId: listStudents
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MyLevelSerialzier'
+          description: ''
+      tags:
+      - student
+    post:
+      operationId: createStudent
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyLevelSerialzier'
+          description: ''
+      tags:
+      - student
+  /student/{id}:
+    get:
+      operationId: retrieveStudent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this student.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyLevelSerialzier'
+          description: ''
+      tags:
+      - student
+    put:
+      operationId: updateStudent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this student.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyLevelSerialzier'
+          description: ''
+      tags:
+      - student
+    patch:
+      operationId: partialUpdateStudent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this student.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MyLevelSerialzier'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyLevelSerialzier'
+          description: ''
+      tags:
+      - student
+    delete:
+      operationId: destroyStudent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this student.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - student
+  /uploads/:
+    post:
+      operationId: createUploadDatas
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadDataSerialzier'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UploadDataSerialzier'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UploadDataSerialzier'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadDataSerialzier'
+          description: ''
+      tags:
+      - uploads
+components:
+  schemas:
+    UploadDataSerialzier:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        link_for_get_data:
+          type: string
+          format: uri
+          maxLength: 300
+          pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4][0-9]|1[0-9]?[0-9]?|[1-9][0-9]?)(?:\\\
+            .(?:0|25[0-5]|2[0-4][0-9]|1[0-9]?[0-9]?|[1-9][0-9]?)){3}|\\[[0-9a-f:.]+\\\
+            ]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\\
+            .(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+            .?|localhost))(?::[0-9]{1,5})?(?:[/?#][^\\s]*)?\\z"
+        link_for_upload_data2:
+          type: string
+          format: uri
+          maxLength: 300
+          pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4][0-9]|1[0-9]?[0-9]?|[1-9][0-9]?)(?:\\\
+            .(?:0|25[0-5]|2[0-4][0-9]|1[0-9]?[0-9]?|[1-9][0-9]?)){3}|\\[[0-9a-f:.]+\\\
+            ]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\\
+            .(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+            .?|localhost))(?::[0-9]{1,5})?(?:[/?#][^\\s]*)?\\z"
+        login_for_that_site2:
+          type: string
+          maxLength: 300
+        password_for_that_site2:
+          type: string
+          maxLength: 50
+        input_your_folder_path:
+          type: string
+          maxLength: 100
+        input_level_of_XPATH:
+          enum:
+          - /html/body/div[1]/div[2]/div[2]/main/div[2]/div[1]/div
+          - asd
+          - Ss
+          - dsS
+          type: string
+        name_of_course:
+          type: string
+          maxLength: 70
+        wait_time:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        title:
+          type: boolean
+      required:
+      - login_for_that_site2
+      - input_level_of_XPATH
+    MyLevelSerialzier:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        year_in_school:
+          enum:
+          - /html/body/div[1]/div[2]/div[2]/main/div[2]/div[1]/div
+          - asd
+          - Ss
+          - dsS
+          type: string
+      required:
+      - year_in_school
