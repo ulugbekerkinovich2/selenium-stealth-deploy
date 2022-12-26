@@ -13,15 +13,15 @@ def selenium_upload():
     all_data = cursor.fetchall()
     wait_ti = wait_t()
     wait_ti1 = wait_ti[-1][9]
-    print("wait_ti10", wait_ti1)
+    # print("wait_ti10", wait_ti1)
     # cursor.execute("SELECT * FROM mylevel")
     # all_data1 = cursor.fetchall()
     # my_data = all_data[0][-1]
     # print(my_data)
-    print(all_data)
+    # print(all_data)
     arr = []
     for i in range(len(all_data)):
-        print(all_data[i])
+        # print(all_data[i])
         arr.append(all_data[i])
     arr1 = arr[-1]
     # print(arr1)
@@ -38,7 +38,7 @@ def selenium_upload():
     print(link_for_get_data, link_for_that_site2, login_for_that_site2,
           password_for_that_site2, folder_path, which_level, course_name, 'shu')
     replace_folder_path = folder_path.replace("str(\\)", "str(\)")
-    print('replace_folder_path', replace_folder_path)
+    # print('replace_folder_path', replace_folder_path)
     input_link = f"{link_for_get_data}"
 
     chrome_options = webdriver.ChromeOptions()
@@ -82,7 +82,7 @@ def selenium_upload():
             url_link.append(link)
         if 'https://intranet.ytit.uz/mod/folder' in str(link) or 'https://intranet.ytit.uz/pluginfile' in str(link):
             folder_link.append(link)
-            print('folder yoq ekan')
+            # print('folder yoq ekan')
     my_folder_file_length_list = []
     for folder in folder_link:
         driver.get(folder)
@@ -92,10 +92,10 @@ def selenium_upload():
             link1 = links.get_attribute('href')
             if 'https://intranet.ytit.uz/pluginfile.php/' in link1:
                 my_folder_links.append(link1)
-        print('my_folder_links', my_folder_links)
-        print(len(my_folder_links))
+        # print('my_folder_links', my_folder_links)
+        # print(len(my_folder_links))
         my_folder_file_length_list.append(len(my_folder_links))
-    print(my_folder_file_length_list, 'my_folder_file_length_list')
+    # print(my_folder_file_length_list, 'my_folder_file_length_list')
     for i in url_link:
         driver.get(i)
         # print(driver.current_url)
@@ -105,7 +105,7 @@ def selenium_upload():
             yotube_links.append(a)
             # print(a)
     time.sleep(1.5)
-    print(link_for_get_data)
+    # print(link_for_get_data)
     driver.get(f"{link_for_get_data}")
     # print(len(lists))  # todo bu linklar soni
     time.sleep(2)
@@ -145,9 +145,9 @@ def selenium_upload():
     # print(all_h3)
     f_data.sort(reverse=False)
     indeks_files_video_urok = [i for i in range(0, len(all_texts)) if all_texts[i] == "Видео-урок"]
-    print('indeks_files_video_urok', indeks_files_video_urok)
+    # print('indeks_files_video_urok', indeks_files_video_urok)
     indeks_files = [i for i in range(0, len(all_texts)) if all_texts[i] == "Файл"]
-    print('indeks_files', indeks_files)
+    # print('indeks_files', indeks_files)
     folder_path1 = folder_path.replace("str(\\)", "str('\')")
     all_files = []
     all_sizes = []
@@ -199,11 +199,11 @@ def selenium_upload():
         course_detail = driver.find_element(By.XPATH,
                                             f'/html/body/div[1]/div[2]/div[2]/main/div[2]/div[2]/div/div[{eles}]/div[2]/div[3]/div[2]/button')
         time.sleep(1)
-        print("course_name", course_name)
+        # print("course_name", course_name)
         try:
             if course_names.lower() == course_name.lower():
                 time.sleep(2)
-                print(course_names, course_name, 'shu edi')
+                # print(course_names, course_name, 'shu edi')
                 course_detail.click()
                 time.sleep(1.5)
                 break
@@ -264,7 +264,7 @@ def selenium_upload():
                 all1 = []
                 all_sizes1 = []
                 for i1 in range(0, len(cycle)):
-                    print('cycle', cycle)
+                    # print('cycle', cycle)
                     if ('Видео-урок' in cycle[i1] or 'Proyeksiyalash mashqlar' in cycle[i1]) and cycle[i1 + 1] == 'Файл' or 'Гиперссылка' in cycle[i1].strip():
                         continue
                     if cycle[i1] == 'Файл':
@@ -276,12 +276,12 @@ def selenium_upload():
                     else:
                         continue
                 count = 0
-                print('all_files3'+'\n\n', all_files)
+                # print('all_files3'+'\n\n', all_files)
                 for get_folder in range(0, len(cycle)):
                     if cycle[get_folder] == 'Папка':
-                        print('PAPKA GA KIRDI')
-                        print('len my_folder_file_length_list', len(my_folder_file_length_list))
-                        print('len my_folder_file_length_list', my_folder_file_length_list)
+                        # print('PAPKA GA KIRDI')
+                        # print('len my_folder_file_length_list', len(my_folder_file_length_list))
+                        # print('len my_folder_file_length_list', my_folder_file_length_list)
                         for k in range(0, my_folder_file_length_list[count]):
                             all_file1 = f"{folder_path1}\{all_files[0]}"
                             # print('all_file1', all_file1)
@@ -293,16 +293,16 @@ def selenium_upload():
                             if len(all1) == sum(my_folder_file_length_list):
                                 count += 1
                                 break
-                            print('k', k)
+                            # print('k', k)
                 print('barcha olingan fayllar ', all1)
                 all2 = ' \n '.join(all1)
                 all3 = sum(all_sizes1)
-                print(all_sizes1)
-                print(all3, 'MB')
-                print('yuklanvotgan faylla', all2)
+                # print(all_sizes1)
+                # print(all3, 'MB')
+                # print('yuklanvotgan faylla', all2)
                 input_file = driver.find_element(By.NAME, 'file')
                 try:
-                    print(all3)
+                    # print(all3)
                     input_file.send_keys(all2)
                     time.sleep(wait_ti1)
                 except:
