@@ -8,12 +8,12 @@ from test1_automatic import selenium_upload
 
 
 class UploadDatas(models.Model):
-    a = '/html/body/div[1]/div[2]'
-    b = '/div[2]/main/div[2]/div[1]/div'
-    LEVEL_1 = a + b
-    LEVEL_2 = 'asd'
-    LEVEL_3 = 'Ss'
-    LEVEL_4 = 'dsS'
+    # a = '/html/body/div[1]/div[2]'
+    # b = '/div[2]/main/div[2]/div[1]/div'
+    LEVEL_1 = '/html/body/div[1]/div[2]/div[2]/main/div[2]/div[1]/div'
+    LEVEL_2 = '/html/body/div[1]/div[2]/div[2]/main/div[2]/div[2]/div'
+    LEVEL_3 = '/html/body/div[1]/div[2]/div[2]/main/div[2]/div[3]/div'
+    LEVEL_4 = '/html/body/div[1]/div[2]/div[2]/main/div[2]/div[4]/div'
     YEAR_IN_SCHOOL_CHOICES = [
         (LEVEL_1, 'LEVEL_1'),
         (LEVEL_2, 'LEVEL_2'),
@@ -27,7 +27,7 @@ class UploadDatas(models.Model):
     login_for_that_site2 = models.CharField(max_length=300)
     password_for_that_site2 = models.CharField(max_length=50, default='password')
     input_your_folder_path = models.CharField(max_length=100, default='path kiritilmagan')
-    input_level_of_XPATH = models.CharField(choices=YEAR_IN_SCHOOL_CHOICES, max_length=100)
+    input_level = models.CharField(choices=YEAR_IN_SCHOOL_CHOICES, max_length=100)
     name_of_course = models.CharField(max_length=70, default='course nomi kiritilmagan')
     wait_time = models.PositiveIntegerField(default='0', verbose_name='input_wait_time_when_upload_file in sekund')
     title = models.BooleanField(default=False, verbose_name='write title name to topic name')

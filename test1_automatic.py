@@ -15,11 +15,11 @@ def selenium_upload():
     wait_ti = wait_t()
     wait_ti1 = wait_ti[-1][9]
     print("wait_ti10", wait_ti1)
-    cursor.execute("SELECT * FROM mylevel")
-    all_data1 = cursor.fetchall()
-    my_data = all_data1[0][-1]
+    # cursor.execute("SELECT * FROM mylevel")
+    # all_data1 = cursor.fetchall()
+    # my_data = all_data[0][-1]
     # print(my_data)
-    # print(all_data)
+    print(all_data)
     arr = []
     for i in range(len(all_data)):
         print(all_data[i])
@@ -42,6 +42,16 @@ def selenium_upload():
     print('replace_folder_path', replace_folder_path)
     input_link = f"{link_for_get_data}"
     # dir_path = 'ORAL BIOLOGY (RUS)'
+
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+
+
+
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.get("https://intranet.ytit.uz/login/index.php")
     driver.find_element(By.NAME, 'username').send_keys('ier20037')
@@ -202,7 +212,7 @@ def selenium_upload():
     # driver.find_element(By.XPATH, '/html/body/div/div[2]/div[1]/nav/div[2]/nav/div/a[2]/div').click()
     time.sleep(2.1)
     # driver.find_element(By.XPATH, '/html/body/div/div[2]/div[2]/main/div[2]/div[1]/div').click()
-    driver.find_element(By.XPATH, f'{my_data}').click()
+    driver.find_element(By.XPATH, f'{which_level}').click()
     time.sleep(1)
     for eles in range(1, 12):
         time.sleep(1)
@@ -341,4 +351,4 @@ def selenium_upload():
                     print('fail ❌ ')
     except:
         print('finished')
-        # driver.close()
+        driver.close()
