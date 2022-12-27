@@ -16,8 +16,8 @@ class CreateUploadData(generics.CreateAPIView):
     queryset = models.UploadDatas.objects.all()
     serializer_class = serializers.UploadDataSerialzier
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
+    # def post(self, request, *args, **kwargs):
+    #     return self.create(request, *args, **kwargs)
 
 
 class ListUploadData(generics.ListAPIView):

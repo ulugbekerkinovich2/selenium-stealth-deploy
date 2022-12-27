@@ -14,7 +14,7 @@ TEMPLATES_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 SECRET_KEY = 'django-insecure-igl2+=ba2#jcmb!o)uxzw&(b#2acg8%*rcj(*xnj@fanwsef4o'
 # os.environ['DJANGO_SETTINGS_MODULE'] = 'uploaddata.settings'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://oyster-app-629fq.ondigitalocean.app/', '*']
 
