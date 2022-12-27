@@ -199,7 +199,7 @@ def selenium_upload():
         course_detail = driver.find_element(By.XPATH,
                                             f'/html/body/div[1]/div[2]/div[2]/main/div[2]/div[2]/div/div[{eles}]/div[2]/div[3]/div[2]/button')
         time.sleep(1)
-        # print("course_name", course_name)
+        print("course_name", course_name)
         try:
             if course_names.lower() == course_name.lower():
                 time.sleep(2)
