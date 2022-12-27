@@ -1,9 +1,9 @@
 import os
 from pathlib import Path
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 import django_heroku
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
@@ -14,9 +14,9 @@ TEMPLATES_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 SECRET_KEY = 'django-insecure-igl2+=ba2#jcmb!o)uxzw&(b#2acg8%*rcj(*xnj@fanwsef4o'
 # os.environ['DJANGO_SETTINGS_MODULE'] = 'uploaddata.settings'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://oyster-app-629fq.ondigitalocean.app/', '*']
 
 # Application definition
 
@@ -73,10 +73,18 @@ DATABASES = {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'railway',
             'USER': 'postgres',
-            'PASSWORD': 'r7dgmskC5BlTQzBWcc1A',
-            'HOST': 'containers-us-west-67.railway.app',
-            'PORT': '6918',
+            'PASSWORD': 'mWF5xoc5x3A55XrPXYWb',
+            'HOST': 'containers-us-west-45.railway.app',
+            'PORT': '5661',
         }
+        #default': {
+        #     'ENGINE': 'django.db.backends.postgresql',
+        #     'NAME': 'railway',
+        #     'USER': 'postgres',
+        #     'PASSWORD': 'r7dgmskC5BlTQzBWcc1A',
+        #     'HOST': 'containers-us-west-67.railway.app',
+        #     'PORT': '6918',
+        # }
 
         # 'default': {
         #     'ENGINE': 'django.db.backends.postgresql',
