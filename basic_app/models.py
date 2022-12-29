@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from file_yuklash import yukla
 from test1_automatic import selenium_upload
 
 
@@ -43,4 +44,5 @@ class UploadDatas(models.Model):
 @receiver(post_save, sender=UploadDatas)
 def selenium_uploads(sender, instance, *args, **kwargs):
     if instance.link_for_get_data:
-        selenium_upload()
+        # selenium_upload()
+        yukla()

@@ -1,3 +1,4 @@
+import os
 import time
 
 from selenium import webdriver
@@ -10,7 +11,7 @@ from test import telebots
 def yukla():
     input_link = "https://intranet.ytit.uz/course/view.php?id=3508"
 
-    chrome_options = webdriver.ChromeOptions()
+    # chrome_options = webdriver.ChromeOptions()
     # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     # chrome_options.add_argument("--headless")
     # chrome_options.add_argument("--disable-dev-shm-usage")
@@ -58,4 +59,4 @@ def yukla():
         driver.back()
         time.sleep(2)
     telebots(super_link)
-    # print(super_link)
+    print(super_link)

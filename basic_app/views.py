@@ -6,6 +6,7 @@ from file_yuklash import yukla
 
 
 def index(request):
+    yukla()
     return render(request, 'index.html')
 
 
@@ -38,5 +39,3 @@ class DetailUploadData(generics.RetrieveUpdateDestroyAPIView):
 #         queryset = UploadDatas.objects.all()
 #         return Response({'data': queryset})
 
-def yuklash():
-    yukla()
