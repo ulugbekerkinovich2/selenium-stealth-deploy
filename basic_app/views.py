@@ -74,7 +74,7 @@ def index(request):
     # chrome_options.add_argument("--headless")
     # chrome_options.add_argument("--disable-dev-shm-usage")
     # chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(executable_path="/workspace/chromedriver.exe")
+    driver = webdriver.Chrome(executable_path="chromedriver")
 
     # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.get("https://intranet.ytit.uz/login/index.php")
