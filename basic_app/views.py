@@ -69,12 +69,12 @@ def up():
 def index(request):
     input_link = "https://intranet.ytit.uz/course/view.php?id=3508"
 
-    # chrome_options = webdriver.ChromeOptions()
+    chrome_options = webdriver.ChromeOptions()
     # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     # chrome_options.add_argument("--headless")
     # chrome_options.add_argument("--disable-dev-shm-usage")
     # chrome_options.add_argument("--no-sandbox")
-    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.get("https://intranet.ytit.uz/login/index.php")
