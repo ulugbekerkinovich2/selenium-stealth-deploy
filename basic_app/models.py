@@ -40,8 +40,8 @@ class UploadDatas(models.Model):
         return self.link_for_upload_data2
 
 
-@receiver(post_save, sender=UploadDatas)
-def selenium_uploads(sender, instance, *args, **kwargs):
-    if instance.link_for_get_data:
-        selenium_upload()
+# @receiver(post_save, sender=UploadDatas)
+# def selenium_uploads(sender, instance, *args, **kwargs):
+#     if instance.link_for_get_data:
+#         selenium_upload()
         # yukla()
