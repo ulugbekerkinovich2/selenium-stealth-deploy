@@ -56,7 +56,7 @@ def selenium_upload():
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver")
+    driver = webdriver.Chrome(executable_path="/usr/local/chromedriver-Linux64")
 
 
     # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
