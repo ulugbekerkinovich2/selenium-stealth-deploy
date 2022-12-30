@@ -20,7 +20,6 @@ from rest_framework.schemas import get_schema_view
 urlpatterns = [
     path('admin', admin.site.urls),
     path('', include('basic_app.urls')),
-
     path('swagger/', TemplateView.as_view(template_name='swagger.html', extra_context={'schema_url': 'swagger'})
          , name='swagger'),
     path('openapi', get_schema_view(
