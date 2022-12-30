@@ -74,7 +74,7 @@ def index(request):
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver_linux64.zip")
+    driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver")
 
     # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     time.sleep(5)
