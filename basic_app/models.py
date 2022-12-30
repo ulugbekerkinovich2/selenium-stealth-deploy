@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from test1_automatic import selenium_upload
+# from test1_automatic import selenium_upload
 
 
 class UploadDatas(models.Model):
