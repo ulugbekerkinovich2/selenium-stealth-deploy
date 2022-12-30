@@ -57,8 +57,8 @@ def selenium_upload():
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
     # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"))
-    # driver = webdriver.Chrome(executable_path="usr/local/bin/chromedriver")
-    driver = webdriver.Chrome(executable_path="/root/pixlfy/projectenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/root/chromedriver")
+    driver = webdriver.Chrome(executable_path="usr/local/bin/chromedriver")
+    # driver = webdriver.Chrome(executable_path="/root/pixlfy/projectenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/root/chromedriver")
 
 
     # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
