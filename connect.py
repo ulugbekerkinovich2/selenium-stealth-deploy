@@ -11,7 +11,9 @@
 # cursor = connect.cursor()
 #
 #
-# cursor = connection.cursor()
-# cursor.execute("SELECT * FROM upload_data")
-# all_data = cursor.fetchone()
-# print(all_data)
+from psycopg2 import connection
+
+cursor = connection.cursor()
+cursor.execute("SELECT * FROM upload_data")
+all_data = cursor.fetchone()
+print(all_data)

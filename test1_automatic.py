@@ -1,8 +1,8 @@
 import os
 import time
-
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-
+from selenium.webdriver.chrome.service import Service as ChromeService
 from test import wait_t, telebots, telebots4, telebots2, telebots3
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -51,12 +51,28 @@ def selenium_upload():
     telebots2('replace_folder_path', replace_folder_path)
     input_link = f"{link_for_get_data}"
 
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options = Options()
+    # chrome_options.headless = True
     chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+    # chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-notifications')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument("window-size=1280,720")
+
+    chrome_options.add_experimental_option("excludeSwitches", ["disable-popup-blocking"])
+
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+
+
+
+
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    # chrome_options.add_argument("--headless")
+    # chrome_options.add_argument("--disable-dev-shm-usage")
+    # chrome_options.add_argument("--no-sandbox")
+    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
     # driver = webdriver.Chrome(executable_path="")
     # driver = webdriver.Chrome(executable_path="/root/pixlfy/projectenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/root/chromedriver")
 
