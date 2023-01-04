@@ -76,5 +76,3 @@ wsproto==1.2.0
 yarl==1.8.2
 zope.event==4.6
 zope.interface==5.5.2
-https://github.com/heroku/heroku-buildpack-google-chrome
-https://github.com/heroku/heroku-buildpack-chromedriver
