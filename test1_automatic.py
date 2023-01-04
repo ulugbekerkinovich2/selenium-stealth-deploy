@@ -9,19 +9,9 @@ from django.db import connection
 options = webdriver.ChromeOptions()
 options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
-options.headless = True
+# options.headless = True
 # driver = webdriver.Chrome(executable_path="C:\Users\ulugbek\PycharmProjects\deployed\chromedriver.exe")
-driver = webdriver.Chrome(options=options)
 
-stealth(
-        driver,
-        languages=["en-US", "en"],
-        vendor="Google Inc.",
-        platform="Win32",
-        webgl_vendor="Intel Inc.",
-        renderer="Intel Iris OpenGL Engine",
-        fix_hairline=True,
-)
 
 
 def selenium_upload():
@@ -92,6 +82,17 @@ def selenium_upload():
 
 
     # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    driver = webdriver.Chrome(options=options, executable_path=os.environ.get("CHROMEDRIVER_PATH"))
+
+    stealth(
+        driver,
+        languages=["en-US", "en"],
+        vendor="Google Inc.",
+        platform="Win32",
+        webgl_vendor="Intel Inc.",
+        renderer="Intel Iris OpenGL Engine",
+        fix_hairline=True,
+    )
     time.sleep(5)
     driver.get("https://intranet.ytit.uz/login/index.php")
     driver.find_element(By.NAME, 'username').send_keys('ier20037')
