@@ -1,15 +1,29 @@
 import os
 import time
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.service import Service as ChromeService
-from test import wait_t, telebots, telebots4, telebots2, telebots3
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
-
-
+from selenium_stealth import stealth
+from test import wait_t, telebots, telebots2, telebots3
 from django.db import connection
+
+options = webdriver.ChromeOptions()
+options.add_experimental_option("excludeSwitches", ["enable-automation"])
+options.add_experimental_option('useAutomationExtension', False)
+options.headless = True
+# driver = webdriver.Chrome(executable_path="C:\Users\ulugbek\PycharmProjects\deployed\chromedriver.exe")
+driver = webdriver.Chrome(options=options)
+
+stealth(
+        driver,
+        languages=["en-US", "en"],
+        vendor="Google Inc.",
+        platform="Win32",
+        webgl_vendor="Intel Inc.",
+        renderer="Intel Iris OpenGL Engine",
+        fix_hairline=True,
+)
+
+
 def selenium_upload():
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM upload_data")
@@ -51,18 +65,18 @@ def selenium_upload():
     telebots2('replace_folder_path', replace_folder_path)
     input_link = f"{link_for_get_data}"
 
-    chrome_options = Options()
-    chrome_options.headless = True
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-notifications')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument("window-size=1280,720")
+    # chrome_options = Options()
+    # chrome_options.headless = True
+    # chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--disable-notifications')
+    # chrome_options.add_argument('--disable-dev-shm-usage')
+    # chrome_options.add_argument('--disable-gpu')
+    # chrome_options.add_argument("window-size=1280,720")
 
-    chrome_options.add_experimental_option("excludeSwitches", ["disable-popup-blocking"])
+    # chrome_options.add_experimental_option("excludeSwitches", ["disable-popup-blocking"])
 
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
 
 

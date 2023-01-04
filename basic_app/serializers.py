@@ -12,6 +12,6 @@ class UploadDataSerialzier(serializers.ModelSerializer):
         fields = '__all__'
         model = models.UploadDatas
 
-    def create(self, validated_data):
-        selenium_upload()
-        return self.validated_data
+    # def create(self, validated_data):
+        # selenium_upload()
+        # return self.validated_data
