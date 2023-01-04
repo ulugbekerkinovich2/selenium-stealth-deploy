@@ -9,8 +9,13 @@ from django.db import connection
 options = webdriver.ChromeOptions()
 options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
-# options.headless = True
+options.headless = True
 # driver = webdriver.Chrome(executable_path="C:\Users\ulugbek\PycharmProjects\deployed\chromedriver.exe")
+options.add_argument("--disable-extensions")
+options.add_argument("--no-sandbox")
+options.add_argument("--no-default-browser-check")
+options.add_argument("--no-first-run")
+options.add_argument("--disable-default-apps")
 
 
 
