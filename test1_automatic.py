@@ -9,13 +9,13 @@ from django.db import connection
 options = webdriver.ChromeOptions()
 options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
-options.headless = True
+# options.headless = True
 # driver = webdriver.Chrome(executable_path="C:\Users\ulugbek\PycharmProjects\deployed\chromedriver.exe")
-options.add_argument("--disable-extensions")
-options.add_argument("--no-sandbox")
-options.add_argument("--no-default-browser-check")
-options.add_argument("--no-first-run")
-options.add_argument("--disable-default-apps")
+# options.add_argument("--disable-extensions")
+# options.add_argument("--no-sandbox")
+# options.add_argument("--no-default-browser-check")
+# options.add_argument("--no-first-run")
+# options.add_argument("--disable-default-apps")
 
 
 
@@ -51,7 +51,7 @@ def selenium_upload():
     which_level = arr1[6]
     course_name = arr1[7]
     title = str(arr1[9])
-    print(link_for_get_data,link_for_that_site2,login_for_that_site2,password_for_that_site2,folder_path,which_level,course_name, 'shu')
+    # print(link_for_get_data,link_for_that_site2,login_for_that_site2,password_for_that_site2,folder_path,which_level, course_name, 'shu')
     # telebots(link_for_get_data+link_for_that_site2+login_for_that_site2+password_for_that_site2+folder_path+which_level+course_name, 'shu')
     # telebots(link_for_get_data, link_for_that_site2, login_for_that_site2,
     #       password_for_that_site2, folder_path, which_level, course_name, 'shu')
@@ -83,11 +83,12 @@ def selenium_upload():
     # chrome_options.add_argument("--no-sandbox")
     # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
     # driver = webdriver.Chrome(executable_path="")
-    # driver = webdriver.Chrome(executable_path="/root/pixlfy/projectenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/root/chromedriver")
 
 
     # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    driver = webdriver.Chrome(options=options, executable_path=os.environ.get("CHROMEDRIVER_PATH"))
+    # driver = webdriver.Chrome(options=options, executable_path=os.environ.get("CHROMEDRIVER_PATH"))
+    driver = webdriver.Chrome(options=options, executable_path="usr/bin/chromedriver")
+    # driver = webdriver.Chrome(options=options)
 
     stealth(
         driver,
@@ -328,7 +329,7 @@ def selenium_upload():
                 all1 = []
                 all_sizes1 = []
                 for i1 in range(0, len(cycle)):
-                    telebots2('cycle', cycle)
+                    # telebots2('cycle', cycle)
                     if ('Видео-урок' in cycle[i1] or 'Proyeksiyalash mashqlar' in cycle[i1]) and cycle[i1 + 1] == 'Файл' or 'Гиперссылка' in cycle[i1].strip():
                         continue
                     if cycle[i1] == 'Файл':
